@@ -25,8 +25,10 @@ app.post("/ask-gemini", async (req, res) => {
       }
     );
 
-    const data = await response.json();
-    res.json(data);
+const data = await response.json();
+console.log("Gemini API response:", JSON.stringify(data, null, 2)); // Log full response
+res.json(data);
+
   } catch (err) {
     console.error("Gemini error:", err);
     res.status(500).json({ error: "Failed to contact Gemini API" });
